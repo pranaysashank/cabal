@@ -74,6 +74,9 @@ constraintScopeMatches (ScopeTarget pn) (Q (PackagePath ns q) pn') =
   let namespaceMatches DefaultNamespace = True
       namespaceMatches (Independent namespacePn) = pn == namespacePn
   in namespaceMatches ns && q == QualToplevel && pn == pn'
+constraintScopeMatches (ScopeQualified QualToplevel pn)
+  (Q (PackagePath _ (QualExe _ _)) pn') =
+    pn == pn'
 constraintScopeMatches (ScopeQualified q pn) (Q (PackagePath _ q') pn') =
     q == q' && pn == pn'
 constraintScopeMatches (ScopeAnySetupQualifier pn) (Q pp pn') =

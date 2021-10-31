@@ -85,7 +85,7 @@ data SolverInstallPlan = SolverInstallPlan {
     planIndex      :: !SolverPlanIndex,
     planIndepGoals :: !IndependentGoals
   }
-  deriving (Typeable, Generic)
+  deriving (Typeable, Show, Generic)
 
 {-
 -- | Much like 'planPkgIdOf', but mapping back to full packages.
